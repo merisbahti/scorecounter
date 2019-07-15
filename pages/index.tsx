@@ -12,7 +12,7 @@ const initalValue: Score = {
 const Index = () => {
   const [score, setScore] = useLocalStorage("myScoreKey", initalValue);
   return (
-    <div>
+    <div style={{ fontSize: 40 }}>
       <div>
         🍆 {score.merisScore} - 💅🏻 {score.henriScore}
       </div>
