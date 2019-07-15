@@ -5,7 +5,7 @@ export default function useLocalStorage<T> (
 ): [T, (state: T) => void] {
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
-      const item = window && window.localStorage && window.localStorage.getItem(key)
+      const item = typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem(key)
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
       console.log(error)
@@ -17,7 +17,7 @@ export default function useLocalStorage<T> (
       const valueToStore =
         value instanceof Function ? value(storedValue) : value
       setStoredValue(valueToStore)
-      window && window.localStorage && window.localStorage.setItem(key, JSON.stringify(valueToStore))
+      typeof window !== 'undefined' && window.localStorage && window.localStorage.setItem(key, JSON.stringify(valueToStore))
     } catch (error) {
       console.log(error)
     }

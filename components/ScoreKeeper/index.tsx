@@ -10,6 +10,7 @@ const Index = () => {
       </S.ScoreContainer>
       <S.ButtonContainer>
         <S.ScoreButton
+          variant='green'
           onClick={() =>
             setScore({
               merisScore: score.merisScore + 1,
@@ -20,6 +21,7 @@ const Index = () => {
           +🍆
         </S.ScoreButton>
         <S.ScoreButton
+          variant='green'
           onClick={() =>
             setScore({
               merisScore: score.merisScore,
@@ -32,7 +34,7 @@ const Index = () => {
       </S.ButtonContainer>
       <S.ButtonContainer>
         <S.ScoreButton
-          variant='green'
+          variant='red'
           onClick={() =>
             setScore({
               merisScore: score.merisScore - 1,

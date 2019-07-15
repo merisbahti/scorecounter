@@ -6,6 +6,7 @@ type ScoreButtonProps = {
 export const ScoreButton = styled.button<ScoreButtonProps>(props => ({
   width: '100%',
   height: 40,
+  fontSize: 20,
   backgroundColor: props.variant === 'green' ? 'lightgreen' : (
     props.variant === 'red' ? 'papayawhip': undefined
   )
@@ -15,6 +16,7 @@ export const BaseContainer = styled.div({
   fontFamily: 'Helvetica Neue',
   fontSize: 48,
   width: 280,
+  margin: 'auto auto',
   display: 'flex',
   flexDirection: 'column'
 })
