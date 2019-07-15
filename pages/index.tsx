@@ -14,7 +14,7 @@ const Index = () => {
   return (
     <div style={{ fontSize: 40 }}>
       <div>
-        🍆 {score.merisScore} - 💅🏻 {score.henriScore}
+        🍆 {score.merisScore} - {score.henriScore} 💅🏻
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <button
