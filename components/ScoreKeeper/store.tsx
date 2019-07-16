@@ -24,25 +24,25 @@ export const Provider = ({ children }: {children: React.ReactNode}) => {
   const [score, setScore] = useLocalStorage('myScoreKey', initialValue.score)
   const { incMeris, incHenri, decMeris, decHenri } = React.useMemo(() => ({
     incMeris: () =>
-      setScore(({
+      setScore((score) => ({
         ...score,
         merisScore: score.merisScore + 1
       })),
     incHenri: () =>
-      setScore(() => ({
+      setScore((score) => ({
         ...score,
         henriScore: score.henriScore + 1
       })),
     decMeris: () =>
-      setScore(() => ({
+      setScore((score) => ({
         ...score,
         merisScore: score.merisScore - 1
       })),
     decHenri: () =>
-      setScore(() => ({
+      setScore((score) => ({
         ...score,
         henriScore: score.henriScore - 1
       }))
-  }), [score])
+  }), [])
   return <Context.Provider value={{ score, ...{ incMeris, incHenri, decMeris, decHenri } }}>{children}</Context.Provider>
 }
