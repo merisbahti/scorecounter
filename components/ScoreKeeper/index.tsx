@@ -1,8 +1,8 @@
-import useLocalStorage from '../../utils/useLocalStorage'
+import React from 'react'
 import * as S from './styles'
-import { initalValue } from './types'
+import { Context } from './store'
 const Index = () => {
-  const [score, setScore] = useLocalStorage('myScoreKey', initalValue)
+  const { score, incHenri, incMeris, decMeris, decHenri } = React.useContext(Context)
   return (
     <S.BaseContainer>
       <S.ScoreContainer>
@@ -11,23 +11,13 @@ const Index = () => {
       <S.ButtonContainer>
         <S.ScoreButton
           variant='green'
-          onClick={() =>
-            setScore({
-              merisScore: score.merisScore + 1,
-              henriScore: score.henriScore
-            })
-          }
+          onClick={incMeris}
         >
           +🍆
         </S.ScoreButton>
         <S.ScoreButton
           variant='green'
-          onClick={() =>
-            setScore({
-              merisScore: score.merisScore,
-              henriScore: score.henriScore + 1
-            })
-          }
+          onClick={incHenri}
         >
           +💅
         </S.ScoreButton>
@@ -35,28 +25,17 @@ const Index = () => {
       <S.ButtonContainer>
         <S.ScoreButton
           variant='red'
-          onClick={() =>
-            setScore({
-              merisScore: score.merisScore - 1,
-              henriScore: score.henriScore
-            })
-          }
+          onClick={decMeris}
         >
           - 🍆
         </S.ScoreButton>
         <S.ScoreButton
           variant='red'
-          onClick={() =>
-            setScore({
-              merisScore: score.merisScore,
-              henriScore: score.henriScore - 1
-            })
-          }
+          onClick={decHenri}
         >
           - 💅
         </S.ScoreButton>
       </S.ButtonContainer>
-
     </S.BaseContainer>
   )
 }
